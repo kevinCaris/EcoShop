@@ -3,8 +3,8 @@ import { Link, NavLink } from 'react-router-dom';
 
 const Navigation = () => {
   return (
-    <ul className="navbar-nav mx-auto text-black ">
-        <li className="nav-item active">
+    <ul className="navbar-nav mx-auto my-3 ">
+        <li className="nav-item active ">
             <NavLink  to="/" className={({ isActive }) => (isActive ? 'nav-link active-link' : 'nav-link')}>Home</NavLink>
         </li>
         <li className="nav-item">
