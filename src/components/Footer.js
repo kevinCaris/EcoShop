@@ -10,7 +10,7 @@ const Footer = () => {
           <a href="#"><i className="fab fa-twitter"></i></a>
           <a href="#"><i className="fab fa-instagram"></i></a>
         </div>
-        <p className="designer-credit">Designed by @amod khan</p>
+        <p className="designer-credit">Designed by @Kévin ADOSSOU</p>
       </div>
 
       <div className="footer-section shop">

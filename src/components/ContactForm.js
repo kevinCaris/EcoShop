@@ -10,7 +10,7 @@ const ContactForm = () => {
 
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  // Fonction pour mettre à jour l'état lorsqu'un champ est modifié
+  // Function to update status when a field is modified
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -19,10 +19,10 @@ const ContactForm = () => {
     });
   };
 
-  // Fonction pour gérer la soumission du formulaire
+
+  // Function to manage form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Ici, vous pouvez ajouter la logique pour envoyer les données (API, etc.)
     console.log('Formulaire soumis:', formData);
     setFormSubmitted(true);
   };

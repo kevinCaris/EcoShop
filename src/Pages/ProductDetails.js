@@ -1,24 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'; // Pour obtenir l'ID du produit depuis l'URL
+import { useParams } from 'react-router-dom';  // To obtain the product ID from the URL
 import axios from 'axios';
-import { Spinner, Tab, Tabs } from 'react-bootstrap'; // Utilisation du spinner pour le chargement
+import { Spinner, Tab, Tabs } from 'react-bootstrap';// Using the spinner for loading
 
 const ProductDetail = ({ ajouterAuPanier }) => {
-  const { id } = useParams(); // Récupérer l'ID du produit depuis l'URL
+  const { id } = useParams(); // Retrieve product ID from URL
   const [produit, setProduit] = useState(null); // État pour stocker les détails du produit
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    // Récupérer les détails du produit depuis Fake Store API
-    axios.get(`https://fakestoreapi.com/products/${id}`)
-      .then(response => {
-        setProduit(response.data);
-        setLoading(false);
-      })
-      .catch(error => {
+ useEffect(() => {
+    // Fonction asynchrone pour récupérer les détails du produit
+    const fetchProduit = async () => {
+      try {
+        const response = await axios.get(`https://fakestoreapi.com/products/${id}`);
+        setProduit(response.data); // Met à jour l'état avec les données reçues
+      } catch (error) {
         console.error("Erreur lors de la récupération du produit :", error);
-        setLoading(false);
-      });
+      } finally {
+        setLoading(false); // Arrête l'affichage du chargement
+      }
+    };
+
+    fetchProduit(); // Appel initial de la fonction
   }, [id]);
 
   if (loading) {
@@ -39,7 +42,7 @@ const ProductDetail = ({ ajouterAuPanier }) => {
   return (
     <div className="container product-detail mt-8">
       <div className="row">
-        {/* Section pour l'image du produit */}
+        {/* Section for product image */}
         <div className="col-md-6">
           <img
             src={produit.image}
@@ -49,7 +52,7 @@ const ProductDetail = ({ ajouterAuPanier }) => {
           />
         </div>
 
-        {/* Section pour les informations sur le produit */}
+        {/* Section for product information */}
         <div className="col-md-6 text-start">
           <h2>{produit.title}</h2>
           <p className="product-price"><strong>Prix : </strong>{produit.price} €</p>
@@ -67,11 +70,11 @@ const ProductDetail = ({ ajouterAuPanier }) => {
           </div>
         </div>
       </div>
-      {/* Onglets pour plus d'informations */}
-      <div className=" onglet row mt-5">
+
+      {/* Tabs for more information */}      <div className=" onglet row mt-5">
         <div className="col-md-12">
           <Tabs defaultActiveKey="details" id="product-tabs" className="custom-tabs">
-            {/* Onglet Détails */}
+            {/* Tabs Détails */}
             <Tab eventKey="details" title="Détails"  className="custom-tab-content">
               <div className="mt-3">
                 <h4>Détails du produit</h4>
@@ -82,19 +85,18 @@ const ProductDetail = ({ ajouterAuPanier }) => {
               </div>
             </Tab>
 
-            {/* Onglet Spécifications */}
+            {/* Tabs Spécifications */}
             <Tab eventKey="specifications" title="Spécifications"  className="custom-tab-content">
               <div className="mt-3">
                 <h4 className='text-black'>Spécifications techniques</h4>
                 <ul>
                   <li><strong>Prix : </strong>{produit.price} €</li>
                   <li><strong>Catégorie : </strong>{produit.category}</li>
-                  {/* Tu peux ajouter plus de spécifications si disponible */}
                 </ul>
               </div>
             </Tab>
 
-            {/* Onglet Avis */}
+            {/* Tabs Avis */}
             <Tab eventKey="reviews" title="Avis"  className="custom-tab-content">
               <div className="mt-3">
                 <h4>Avis des utilisateurs</h4>
