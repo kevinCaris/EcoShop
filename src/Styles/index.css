@@ -1,0 +1,480 @@
+/* src/styles/fonts.css */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400&family=Roboto:wght@400;700&display=swap');
+
+/* Palette de couleurs */
+:root {
+  --primary-color: #113B08;
+  /* Vert clair */
+  --secondary-color: #ff991c;
+  /* orange */
+  --background-color: #FFFFFF;
+  /* Blanc */
+  --text-color: #000;
+  /* Gris foncé */
+}
+
+body {
+  font-size: ;
+  margin: 0;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/*style de la header */
+nav .navbar-brand {
+  color: var(--background-color);
+}
+
+.navbar-brand span,
+.footer-logo span {
+  color: var(--secondary-color);
+}
+
+ul.navbar-nav li {
+  margin-right: 60px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/*footer */
+.footer {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 50px;
+  flex-wrap: wrap;
+  /* position: fixed; */
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 10px;
+  text-align: left;
+}
+
+.footer-logo {
+  color: #fff;
+  font-size: 24px;
+}
+
+.social-icons {
+  display: flex;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: #ffffff;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.designer-credit {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.footer-section h2 {
+  margin-bottom: 10px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.footer-section ul li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer-section.contact ul li,
+.footer-section.legal ul li {
+  font-size: 14px;
+}
+
+.footer-section.legal ul {
+  list-style: none;
+  padding: 0;
+}
+
+.navbar-toggler {
+  color: var(--background-color);
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center !important;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contact {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .footer-section {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}
+
+/* Styles de base pour la barre de navigation */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  /* Aligne les éléments (logo et liens) aux extrémités */
+  align-items: center;
+  padding: 15px 50px;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+
+.nav-item {
+  list-style: none;
+  display: flex;
+}
+
+.nav-item li {
+  margin: 0 15px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.nav-item .nav-link,
+.icone a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.nav-item .nav-link:hover,
+.icone a:hover {
+  color: var(--secondary-color);
+  /* Change la couleur au survol */
+}
+
+.active-link {
+  color: var(--secondary-color) !important;
+  /* Couleur rouge pour le lien actif */
+}
+
+/* cadre du produit*/
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  margin: 15px;
+  width: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.card-link {
+  text-decoration: none;
+  color: #000;
+}
+
+.icon-detail {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #e74c3c;
+  text-decoration: none;
+}
+
+.produit-card:hover {
+  transform: scale(1.05);
+}
+
+.produit-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.cad-title {
+
+  font-size: 18px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.card-img-top {
+  max-height: 150px;
+  /* Limiter la hauteur maximale de l'image */
+  object-fit: cover;
+  /* L'image occupe tout l'espace sans se déformer */
+  width: 100%;
+  /* S'assurer que l'image prend toute la largeur du conteneur */
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+.cad-price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #e74c3c !important;
+  margin-bottom: 15px;
+}
+
+.btn-panier {
+  background-color: var(--primary-color) !important;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-panier:hover {
+  background-color: #c0392b;
+}
+
+/*Formulaire de contact */
+
+.contact-form-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-group textarea {
+  height: 100px;
+  resize: none;
+}
+
+.btn-submit {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: var(--primary-color);
+}
+
+.success-message {
+  color: green;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+/*detaille produit */
+.produit-details-container {
+  display: flex;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.produit-image-section {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.produit-image {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.produit-info-section {
+  flex: 2;
+}
+
+.produit-nom {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.btn-panier:hover {
+  background-color: #c0392b;
+}
+
+/*section-hero */
+.shop-hero {
+  padding: 30px;
+  font-weight: bold;
+  font-size: 200px;
+  /* background-color: var(--secondary-color); */
+  border-radius: 10px;
+  color: #000;
+  margin-bottom: 50px;
+  opacity: 0.9;
+}
+
+/* shop  */
+.product-detail {
+  margin-bottom: 70px;
+  margin-top: 70px;
+
+}
+
+.product-detail img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.product-detail .product-price {
+  font-size: 22px;
+  color: #e74c3c;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.product-detail .product-description {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.product-detail button {
+  margin-top: 20px;
+  padding: 10px 20px;
+}
+
+.btn1 {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn2 {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.tab-content {
+  margin-top: 20px;
+}
+
+.onglet li {
+  list-style: none;
+}
+
+/* Bordures autour des onglets */
+.custom-tabs .nav-link {
+  border: 1px solid #ddd;
+  /* Bordure des onglets */
+  margin-right: 5px;
+  /* Espacement entre les onglets */
+  border-radius: 4px 4px 0 0;
+  /* Bordure arrondie en haut */
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Onglet actif avec des bordures plus marquées */
+.custom-tabs .nav-link.active {
+  border-bottom: 2px solid white;
+  /* Supprime la bordure du bas pour l'onglet actif */
+  background-color: #fff;
+  color: #007bff;
+  /* Couleur du texte de l'onglet actif */
+  font-weight: bold;
+}
+
+/* Bordure autour du contenu des onglets */
+.custom-tab-content {
+  border: 1px solid #ddd;
+  border-radius: 0 0 4px 4px;
+  /* Bordure arrondie en bas */
+  padding: 20px;
+  background-color: #fff;
+  border-top: none;
+  /* Enlever la bordure supérieure pour unifier avec les onglets */
+}
