@@ -6,7 +6,6 @@ import { Pagination, Spinner } from 'react-bootstrap';
 
 const Shop = () => {
   const [recherche, setRecherche] = useState('');
-  const [panier, setPanier] = useState([]);
   const [tri, setTri] = useState(''); // État pour le critère de tri
   const [produits, setProduits] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -63,18 +62,6 @@ const Shop = () => {
 
   // Produits actuels après pagination
   const currentProducts = produitsTries.slice(indexOfFirstProduct, indexOfLastProduct);
-
-  // Ajouter au panier
-  const ajouterAuPanier = (produit) => {
-    setPanier([...panier, produit]);
-  };
-
-  // Retirer du panier
-  const retirerDuPanier = (index) => {
-    const nouveauPanier = panier.filter((_, i) => i !== index);
-    setPanier(nouveauPanier);
-  };
-
   return (
     <div className="shop-container container mt-4">
       <div className='shop-hero'>
@@ -104,7 +91,7 @@ const Shop = () => {
       </div>
 
       {/* Affichage de la liste de produits */}
-      <ProductList produitsFiltres={currentProducts} ajouterAuPanier={ajouterAuPanier} />
+      <ProductList produitsFiltres={currentProducts}/>
 
       {/* Pagination */}
       <div className='d-flex align-item-center justify-content-center my-5' >

@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'; // Pour obtenir l'ID du produit depuis l'URL
 import axios from 'axios';
 import { Spinner, Tab, Tabs } from 'react-bootstrap'; // Utilisation du spinner pour le chargement
+import { useCart } from '../components/CartContext';
 
-const ProductDetail = ({ ajouterAuPanier }) => {
+const ProductDetail = () => {
+const { ajouterAuPanier } = useCart();
   const { id } = useParams(); // Récupérer l'ID du produit depuis l'URL
   const [produit, setProduit] = useState(null); // État pour stocker les détails du produit
   const [loading, setLoading] = useState(true);
@@ -40,7 +42,7 @@ const ProductDetail = ({ ajouterAuPanier }) => {
     <div className="container product-detail mt-8">
       <div className="row">
         {/* Section pour l'image du produit */}
-        <div className="col-md-6">
+        <div className="col-md-6 mb-5">
           <img
             src={produit.image}
             alt={produit.title}
@@ -58,7 +60,6 @@ const ProductDetail = ({ ajouterAuPanier }) => {
           </div>
           <p className="product-category fw-bold fs-5">Cartégorie :{produit.category}</p>
           <p className="product-description">{produit.description}</p>
-
 
           {/* Boutons d'action */}
           <div className="product-actions gap-5">

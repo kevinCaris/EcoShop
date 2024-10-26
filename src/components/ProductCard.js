@@ -1,8 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useCart } from './CartContext';
 
 
-const ProductCard = ({ produit, ajouterAuPanier }) => {
+const ProductCard = ({ produit}) => {
+
+  const { ajouterAuPanier } = useCart();
+
   return (
     <div className="card h-100 d-flex flex-column">
       <Link to={`/productDetail/${produit.id}`} className="card-link">
