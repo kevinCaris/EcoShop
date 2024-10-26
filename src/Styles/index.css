@@ -349,3 +349,41 @@ ul.navbar-nav li {
 .btn-panier:hover {
   background-color: #c0392b;
 }
+
+/* styles homes */
+
+.hero-section {
+  /* background-image: url("/public/images/image2.jpg"); */
+  background-size: cover;
+  background-position: center;
+  padding: 500px !important++-;
+}
+
+
+.steps-section .text-center img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.featured-products-section .card {
+  transition: transform 0.3s ease;
+}
+
+.featured-products-section .card:hover {
+  transform: scale(1.05);
+}
+
+.deal-of-the-day-section {
+  color: #fff;
+  text-align: center;
+}
+
+.why-choose-us-section i {
+  font-size: 2rem;
+  color: #4CAF50;
+}
+
+.recent-blogs-section img {
+  margin-bottom: 15px;
+}
