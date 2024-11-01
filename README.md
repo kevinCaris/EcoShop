@@ -23,58 +23,111 @@ EcoShop est une application web de commerce électronique développée avec Reac
 
 ```
 EcoShop/
+│
 ├── public/
+│   ├── images/                   # Dossier contenant les images publiques
 │   └── index.html                # Fichier HTML principal, point d'entrée de l'application
-├── src/
-│   ├── components/               # Composants réutilisables pour la structure de l'application
-│   │   ├── CartContext.js        # Contexte pour gérer l'état du panier globalement
-│   │   ├── ContactForm.js        # Formulaire de contact pour l'utilisateur
-│   │   ├── Footer.js             # Pied de page
-│   │   ├── Header.js             # En-tête de l'application
-│   │   ├── Layout.js             # Composant pour structurer les pages avec un en-tête et un pied de page
-│   │   ├── Navigation.js         # Barre de navigation principale
-│   │   ├── PopularProducts.js    # Composant pour afficher les produits populaires
-│   │   ├── ProductCard.js        # Carte produit pour afficher les informations d'un produit
-│   │   ├── ProductList.js        # Liste de produits utilisée sur la page d'accueil et de boutique
-│   │   └── SearchBar.js          # Barre de recherche pour filtrer les produits
-│   ├── Pages/                    # Pages principales de l'application
-│   │   ├── Cart.js               # Page du panier où les utilisateurs peuvent voir et gérer les articles
-│   │   ├── Contact.js            # Page de contact incluant le formulaire de contact
-│   │   ├── Home.js               # Page d'accueil présentant les produits
-│   │   ├── ProductDetails.js     # Page de détails d'un produit spécifique
-│   │   └── Shop.js               # Page de la boutique avec tous les produits disponibles
-│   ├── Styles/                   # Fichiers de style CSS
-│   │   ├── font/                 # Polices spécifiques à l'application
-│   │   └── index.css             # Styles globaux de l'application
-│   ├── App.js                    # Composant racine de l'application
-│   ├── AppRouter.js              # Fichier de configuration des routes avec React Router
-│   ├── index.js                  # Point d'entrée de l'application, rendu dans index.html
-│   └── Layout/                   # Dossier pour organiser les layouts si besoin
-├── .gitignore                    # Fichiers et dossiers ignorés par Git
+│
+├── src/                          # Dossier source principal
+│   ├── __tests__/                # Dossier pour les tests unitaires des composants
+│   │   ├── CartContext.test.js       # Test pour le composant CartContext
+│   │   ├── ContactForm.test.js       # Test pour le composant ContactForm
+│   │   ├── PopularProducts.test.js   # Test pour le composant PopularProducts
+│   │   ├── ProductCarousel.test.js   # Test pour le composant ProductCarousel
+│   │   ├── ProductFetcher.test.js    # Test pour le composant ProductFetcher
+│   │   ├── ProductList.test.js       # Test pour le composant ProductList
+│   │   └── SearchBar.test.js         # Test pour le composant SearchBar
+│   │
+│   ├── components/               # Dossier contenant les composants réutilisables
+│   │   ├── CartContext.js            # Contexte pour la gestion du panier
+│   │   ├── ContactForm.js            # Composant pour le formulaire de contact
+│   │   ├── Footer.js                 # Composant pour le pied de page
+│   │   ├── Header.js                 # Composant pour l'en-tête
+│   │   ├── Layout.js                 # Composant de mise en page pour structurer les pages
+│   │   ├── Navigation.js             # Composant pour la barre de navigation
+│   │   ├── PageNotification.js       # Composant pour les notifications de page
+│   │   ├── PopularProducts.js        # Composant pour l'affichage des produits populaires
+│   │   ├── ProductCard.js            # Composant de carte de produit individuel
+│   │   ├── ProductCarousel.js        # Carrousel pour afficher les produits
+│   │   ├── ProductFetcher.js         # Gestion de la récupération des produits via API
+│   │   ├── ProductList.js            # Affiche une liste de produits
+│   │   ├── SearchBar.js              # Barre de recherche pour trouver des produits
+│   │   ├── TestimonialCard.js        # Carte pour afficher les témoignages clients
+│   │   └── TestimonialSection.js     # Section pour afficher plusieurs témoignages
+│   │
+│   ├── Pages/                    # Dossier contenant les pages principales de l'application
+│   │   ├── Cart.js                   # Page affichant le panier de l'utilisateur
+│   │   ├── Contact.js                # Page de contact avec formulaire
+│   │   ├── Home.js                   # Page d'accueil de l'application
+│   │   ├── ProductDetail.js          # Vue détaillée d'un produit spécifique
+│   │   └── Shop.js                   # Page affichant tous les produits de la boutique
+│   │
+│   ├── Styles/                   # Dossier pour les fichiers de style globaux
+│   │   └── index.css                 # Fichier CSS principal pour les styles globaux
+│   │
+│   ├── App.js                    # Composant principal configurant la structure et les routes de l'application
+│   ├── AppRouter.js              # Gère la logique de routage de l'application
+│   ├── index.js                  # Point d'entrée de l'application
+│   └── Layout.js                 # Composant de mise en page principal
+│
 ├── package.json                  # Dépendances et scripts du projet
+└── package-lock.json             # Fichier de verrouillage des versions des dépendances
 └── README.md                     # Documentation principale du projet
 ```
 
-## Description des Composants
+## Description des Dossiers
 
-- **components/**
-  - **CartContext.js** : Définit le contexte global pour le panier, permettant de gérer l'état du panier dans toute l'application.
-  - **ContactForm.js** : Composant de formulaire permettant aux utilisateurs de contacter le support.
-  - **Footer.js** : Composant de pied de page affiché en bas de chaque page.
-  - **Header.js** : Composant d'en-tête avec le logo et les liens de navigation.
-  - **Layout.js** : Structure les pages en ajoutant le `Header` et le `Footer` pour une mise en page cohérente.
-  - **Navigation.js** : Barre de navigation pour faciliter l'accès aux différentes pages de l'application.
-  - **PopularProducts.js** : Affiche une sélection de produits populaires sur la page d'accueil.
-  - **ProductCard.js** : Carte affichant un produit unique avec son image, son nom, son prix, et un bouton pour l'ajouter au panier.
-  - **ProductList.js** : Affiche une liste de produits, utilisée sur les pages `Home` et `Shop`.
-  - **SearchBar.js** : Barre de recherche pour filtrer les produits par nom ou catégorie.
+### `public/`
 
-- **Pages/**
-  - **Cart.js** : Affiche le panier de l'utilisateur avec les produits ajoutés et permet de modifier les quantités ou de retirer des articles.
-  - **Contact.js** : Page de contact contenant le formulaire `ContactForm` pour permettre aux utilisateurs de poser des questions ou de demander de l'aide.
-  - **Home.js** : Page d'accueil avec un aperçu des produits populaires et un accès rapide à la boutique.
-  - **ProductDetails.js** : Affiche les détails complets d'un produit sélectionné, incluant la description, le prix, et les options d'achat.
-  - **Shop.js** : Page affichant tous les produits disponibles en boutique avec la possibilité de les filtrer et les trier.
+Contient les ressources publiques accessibles dans le navigateur :
+
+- **images/** : Dossier pour les images utilisées dans l'application.
+- **index.html** : Le fichier HTML principal, servant de point d'entrée pour le rendu de React.
+
+### `src/`
+
+Le dossier source contenant le code de l'application.
+
+- **`__tests__/`** : Tests unitaires des composants individuels, assurant la fiabilité du code.
+  - Chaque fichier (`*.test.js`) teste un composant spécifique pour vérifier son bon fonctionnement.
+
+- **`components/`** : Composants réutilisables au sein de l'application.
+  - **CartContext.js** : Contexte pour la gestion du panier dans l'application.
+  - **ContactForm.js** : Formulaire de contact pour que les utilisateurs puissent nous joindre.
+  - **Footer.js** : Composant pour le pied de page.
+  - **Header.js** : Composant pour l'en-tête incluant le logo et la navigation principale.
+  - **Layout.js** : Composant de mise en page offrant une structure cohérente.
+  - **Navigation.js** : Barre de navigation pour les liens principaux du site.
+  - **PageNotification.js** : Composant d'affichage des notifications ou alertes.
+  - **PopularProducts.js** : Affiche une liste de produits populaires.
+  - **ProductCard.js** : Affiche les détails individuels d'un produit sous forme de carte.
+  - **ProductCarousel.js** : Carrousel pour présenter des produits sous forme de diaporama.
+  - **ProductFetcher.js** : Gère la récupération des produits depuis une API.
+  - **ProductList.js** : Liste les produits dans une mise en page structurée.
+  - **SearchBar.js** : Barre de recherche pour filtrer les produits.
+  - **TestimonialCard.js** : Carte affichant les témoignages individuels des clients.
+  - **TestimonialSection.js** : Section pour afficher plusieurs témoignages.
+
+- **`Pages/`** : Contient les pages principales de l'application.
+  - **Cart.js** : Page du panier d'achat.
+  - **Contact.js** : Page de contact avec un formulaire de contact.
+  - **Home.js** : Page d'accueil avec les principales sections et produits.
+  - **ProductDetail.js** : Vue détaillée d'un produit avec descriptions et détails.
+  - **Shop.js** : Page boutique listant tous les produits.
+
+- **`Styles/`** : Dossier pour les styles globaux et modulaires.
+  - **index.css** : Fichier CSS principal pour le style global.
+
+- **App.js** : Composant principal initialisant la structure et les routes de l'application.
+- **AppRouter.js** : Composant gérant le routage des pages.
+- **index.js** : Fichier d'entrée qui monte l'application.
+- **Layout.js** : Structure de mise en page principale pour englober les pages.
+
+### `package.json`
+
+Liste les dépendances, les scripts et les métadonnées du projet.
+
+---
 
 ## Utilisation de `React Router`
 

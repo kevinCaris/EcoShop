@@ -9,8 +9,9 @@ const ContactForm = () => {
   });
 
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [errors, setErrors] = useState({});
 
-  // Function to update status when a field is modified
+  // Fonction pour gérer les modifications des champs du formulaire
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -19,16 +20,46 @@ const ContactForm = () => {
     });
   };
 
+  // Fonction de validation des champs
+  const validateForm = () => {
+    const newErrors = {};
 
-  // Function to manage form submission
+    if (formData.nom.trim().length < 3) {
+      newErrors.nom = 'Le nom doit contenir au moins 3 caractères.';
+    }
+    if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Veuillez entrer une adresse email valide.';
+    }
+    if (formData.sujet.trim() === '') {
+      newErrors.sujet = 'Le sujet est requis.';
+    }
+    if (formData.message.trim().length < 10) {
+      newErrors.message = 'Le message doit contenir au moins 10 caractères.';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  // Fonction de gestion de la soumission du formulaire
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Formulaire soumis:', formData);
-    setFormSubmitted(true);
+
+    if (validateForm()) {
+      console.log('Formulaire soumis:', formData);
+      setFormSubmitted(true);
+      setFormData({
+        nom: '',
+        email: '',
+        sujet: '',
+        message: '',
+      });
+      setErrors({});
+    }
   };
 
   return (
-    <div className="contact-form-container text-start ">
+    <div className="contact-form-container text-start">
       <h2>Contactez-nous</h2>
       {formSubmitted ? (
         <div className="success-message">
@@ -46,6 +77,7 @@ const ContactForm = () => {
               onChange={handleChange}
               required
             />
+            {errors.nom && <span className="error">{errors.nom}</span>}
           </div>
           <div className="form-group">
             <label htmlFor="email">Email</label>
@@ -57,6 +89,7 @@ const ContactForm = () => {
               onChange={handleChange}
               required
             />
+            {errors.email && <span className="error">{errors.email}</span>}
           </div>
           <div className="form-group">
             <label htmlFor="sujet">Sujet</label>
@@ -68,6 +101,7 @@ const ContactForm = () => {
               onChange={handleChange}
               required
             />
+            {errors.sujet && <span className="error">{errors.sujet}</span>}
           </div>
           <div className="form-group">
             <label htmlFor="message">Message</label>
@@ -78,6 +112,7 @@ const ContactForm = () => {
               onChange={handleChange}
               required
             ></textarea>
+            {errors.message && <span className="error">{errors.message}</span>}
           </div>
           <button type="submit" className="btn-submit">Envoyer</button>
         </form>

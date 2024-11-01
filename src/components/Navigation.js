@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Navigation = () => {
   return (
-    <ul className="navbar-nav mx-auto my-3 ">
+    <ul className="navbar-nav navigation d-flex flex-column flex-lg-row align-items-center justify-content-center mx-auto">
+
         <li className="nav-item active ">
             <NavLink  to="/" className={({ isActive }) => (isActive ? 'nav-link active-link' : 'nav-link')}>Home</NavLink>
         </li>

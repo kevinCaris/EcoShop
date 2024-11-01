@@ -62,7 +62,6 @@ const ProductDetail = ({ ajouterAuPanier }) => {
           <p className="product-category fw-bold fs-5">Cartégorie :{produit.category}</p>
           <p className="product-description">{produit.description}</p>
 
-
           {/* Boutons d'action */}
           <div className="product-actions gap-5">
             <button className="btn1  btn-lg me-3" onClick={() => ajouterAuPanier(produit)}>Acheter maintenant</button>
