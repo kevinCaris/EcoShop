@@ -1,5 +1,4 @@
 import React from 'react';
-import { Form, FormControl, Button, NavItem, Image } from 'react-bootstrap';
 import Navigation from './Navigation';
 import { Link, NavLink } from 'react-router-dom';
 import { useCart } from './CartContext';

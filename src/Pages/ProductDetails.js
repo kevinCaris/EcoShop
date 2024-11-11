@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';  // To obtain the product ID from the URL
+import { useNavigate, useParams } from 'react-router-dom';  // To obtain the product ID from the URL
 import axios from 'axios';
 import { Spinner, Tab, Tabs } from 'react-bootstrap';// Using the spinner for loading
 
@@ -7,6 +7,11 @@ const ProductDetail = ({ ajouterAuPanier }) => {
   const { id } = useParams(); // Retrieve product ID from URL
   const [produit, setProduit] = useState(null); // État pour stocker les détails du produit
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+  const handleAddToCartAndRedirect = (produit) => {
+  ajouterAuPanier(produit); // Appel de la fonction pour ajouter le produit au panier
+  navigate('/cart'); // Redirection vers la page panier
+};
 
  useEffect(() => {
     // Fonction asynchrone pour récupérer les détails du produit
@@ -64,7 +69,8 @@ const ProductDetail = ({ ajouterAuPanier }) => {
 
           {/* Boutons d'action */}
           <div className="product-actions gap-5">
-            <button className="btn1  btn-lg me-3" onClick={() => ajouterAuPanier(produit)}>Acheter maintenant</button>
+            <button
+              className="btn1  btn-lg me-3" onClick={() =>handleAddToCartAndRedirect(produit)}>Acheter maintenant</button>
             <button className="btn2  btn-lg me-3" onClick={() => ajouterAuPanier(produit)}>Ajouter au panier</button>
           </div>
         </div>
